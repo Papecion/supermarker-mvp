@@ -17,6 +17,7 @@ namespace Supermarket_mvp.Presenters
 
         public PayModePresenter(IPayModeView view, IPayModeRepository repository)
         {
+            this.payModeBindingSource = new BindingSource();
             this.view = view;
             this.repository = repository;
             this.view.SearchEvent += SearchPayMode;

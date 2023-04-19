@@ -58,18 +58,18 @@ namespace Supermarket_mvp.Views
         }
         public bool IsEdit
         {
-            get { return isEdit.Text; }
-            set { isEdit.Text = value; }
+            get { return isEdit; }
+            set { isEdit = value; }
         }
         public bool IsSuccessful
         {
-            get { return isSuccessful.Text; }
-            set { isSuccessful.Text = value; }
+            get { return isSuccessful; }
+            set { isSuccessful = value; }
         }
         public string Message
         {
-            get { return message.Text; }
-            set { message.Text = value; }
+            get { return message; }
+            set { message = value; }
         }
 
         public event EventHandler SearchEvent;
@@ -84,11 +84,24 @@ namespace Supermarket_mvp.Views
             DgPayMode.DataSource = payModeList;
         }
 
-        private void BtnSearch_Click(object sender, EventArgs e)
+        //Patron singleton para controlar solo una instancia en el formulario 
+        private static PayModeView instance;
+       
+        public static PayModeView GetInstance()
         {
-
+            if(instance==null|| instance.IsDisposed)
+            {
+                instance = new PayModeView();
+            }
+            else
+            {
+                if (instance.WindowState==FormWindowState.Minimized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+                instance.BringToFront();
+            }
+            return instance;
         }
-
-
     }
 }

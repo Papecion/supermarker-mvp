@@ -17,9 +17,10 @@ namespace Supermarket_mvp.Presenters
 
         public PayModePresenter(IPayModeView view, IPayModeRepository repository)
         {
-            this.payModeBindingSource = new BindingSource();
+            this.payModeBindingSource = new BindingSource(); 
             this.view = view;
             this.repository = repository;
+
             this.view.SearchEvent += SearchPayMode;
             this.view.AddNewEvent += AddNewPayMode;
             this.view.EditEvent += LoadSelectPayModeToEdit;
@@ -36,17 +37,15 @@ namespace Supermarket_mvp.Presenters
         private void LoadAllPayModeList()
         {
             payModeList = repository.GetAll();
-            payModeBindingSource.DataSource = payModeList(); 
+            payModeBindingSource.DataSource = payModeList; 
         }
 
         private void CancelAction(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
         }
 
         private void SavePayMode(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
         }
 
         private void DeleteSelectPayMode(object? sender, EventArgs e)

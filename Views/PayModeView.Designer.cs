@@ -246,8 +246,11 @@
             // 
             TxtPayModeId.Location = new Point(8, 50);
             TxtPayModeId.Name = "TxtPayModeId";
+            TxtPayModeId.ReadOnly = true;
             TxtPayModeId.Size = new Size(190, 23);
             TxtPayModeId.TabIndex = 3;
+            TxtPayModeId.Text = "0\r\n";
+            TxtPayModeId.TextAlign = HorizontalAlignment.Right;
             // 
             // label5
             // 
@@ -283,6 +286,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(tabControl1);
             Controls.Add(panel1);
+            IsMdiContainer = true;
             Name = "PayModeView";
             Text = "Pay Mode Management";
             panel1.ResumeLayout(false);
